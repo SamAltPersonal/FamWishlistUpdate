@@ -1,6 +1,6 @@
-# Wishlist Links — GitHub Pages
+# Wishlist Links — GitHub Page
 
-A lightweight, responsive wishlist directory. It uses no framework or build step and follows each visitor's device/browser light or dark preference.
+A lightweight, responsive wishlist directory.
 
 ## Files
 
@@ -8,6 +8,7 @@ A lightweight, responsive wishlist directory. It uses no framework or build step
 - `people.json` — the list of people and their links
 - `images/` — upload photos or icons here
 
+#Notes for Me:
 ## Add or edit a person
 
 Open `people.json` on GitHub and click the pencil (Edit) button. Copy an existing person object and change the fields:
