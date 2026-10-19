@@ -16,8 +16,8 @@
     "image": "images/jason.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "wishlist",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https://i.imgur.com/qhMbkGi.jpg.png"
       }
     ]
   },
@@ -27,8 +27,8 @@
     "image": "images/lesley.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "Amazon Wishlist",
+        "url": "https://www.amazon.co.uk/hz/wishlist/ls/JJDQJXGTFU2P"
       }
     ]
   },
@@ -38,8 +38,8 @@
     "image": "images/jess.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "wishlist",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https://i.imgur.com/qhMbkGi.jpg.png"
       }
     ]
   },
@@ -49,8 +49,8 @@
     "image": "images/mike.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "Amazon Wishlist",
+        "url": "https://www.amazon.co.uk/hz/wishlist/ls/389BROHZBWNLJ"
       }
     ]
   },
@@ -60,8 +60,8 @@
     "image": "images/phil.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "wishlist",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https://i.imgur.com/qhMbkGi.jpg.png"
       }
     ]
   },
@@ -71,8 +71,8 @@
     "image": "images/jude.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "wishlist",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https://i.imgur.com/qhMbkGi.jpg.png"
       }
     ]
   },
@@ -82,8 +82,8 @@
     "image": "images/sharon.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "Amazon Wishlist",
+        "url": "https://www.amazon.co.uk/hz/wishlist/ls/2QIYVRHTUL6UQ"
       }
     ]
   },
@@ -93,8 +93,8 @@
     "image": "images/emma.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "Amazon Wishlist",
+        "url": "https://www.amazon.co.uk/hz/wishlist/ls/30IGU3Z02UQWR"
       }
     ]
   },
@@ -104,12 +104,12 @@
     "image": "images/sam.jpg",
     "links": [
       {
-        "label": "Steam wishlist (PC Games)",
-        "url": "https://store.steampowered.com/wishlist/id/snapshotsam/?sort=discount&st=9982814051644988892"
+        "label": "Amazon Wishlist",
+        "url": "https://www.amazon.co.uk/hz/wishlist/ls/3MY8W4YZ6J3PK?ref_=wl_share"
       },
       {
-        "label": "Etsy favourites",
-        "url": "https://www.etsy.com/"
+        "label": "Steam wishlist (PC Games)",
+        "url": "https://store.steampowered.com/wishlist/id/snapshotsam/?sort=discount&st=9982814051644988892"
       }
     ]
   },
@@ -119,8 +119,8 @@
     "image": "images/cameron.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "Amazon Wishlist",
+        "url": "https://www.amazon.co.uk/hz/wishlist/ls/17IFL91XDCCJF/ref=cm_go_nav_hz"
       }
     ]
   },
@@ -130,8 +130,8 @@
     "image": "images/ophelia.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "wishlist",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https://i.imgur.com/qhMbkGi.jpg.png"
       }
     ]
   },
@@ -141,8 +141,19 @@
     "image": "images/carole.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "wishlist",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https://i.imgur.com/qhMbkGi.jpg.png"
+      }
+    ]
+  },
+  {
+    "name": "Sophia",
+    "note": "Birthday: 26/12",
+    "image": "images/sophia.jpg",
+    "links": [
+      {
+        "label": "Amazon Wishlist",
+        "url": "https://www.amazon.co.uk/hz/wishlist/ls/1QSXLJWOJ15PL"
       }
     ]
   },
@@ -152,8 +163,8 @@
     "image": "images/freddie.jpg",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "wishlist",
+        "url": "https://external-content.duckduckgo.com/iu/?u=https://i.imgur.com/qhMbkGi.jpg.png"
       }
     ]
   }
