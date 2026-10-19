@@ -136,9 +136,9 @@
     ]
   },
   {
-    "name": "Freddie",
-    "note": "Birthday: 13/12",
-    "image": "images/freddie.jpg",
+    "name": "Carole",
+    "note": "Birthday: 24/12",
+    "image": "images/carole.jpg",
     "links": [
       {
         "label": "Main wishlist",
@@ -147,9 +147,9 @@
     ]
   },
   {
-    "name": "Carole",
-    "note": "Birthday: 24/12",
-    "image": "images/carole.jpg",
+    "name": "Freddie",
+    "note": "Birthday: 31/12",
+    "image": "images/freddie.jpg",
     "links": [
       {
         "label": "Main wishlist",
