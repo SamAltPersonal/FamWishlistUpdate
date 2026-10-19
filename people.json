@@ -22,6 +22,51 @@
       {
         "label": "Main wishlist",
         "url": "https://www.example.com/"
+      },
+  {
+    "name": "Example",
+    "note": "Birthday ideas",
+    "image": "",
+    "links": [
+      {
+        "label": "Main wishlist",
+        "url": "https://www.example.com/"
+      },
+  {
+    "name": "Example",
+    "note": "Birthday ideas",
+    "image": "",
+    "links": [
+      {
+        "label": "Main wishlist",
+        "url": "https://www.example.com/"
+      },
+  {
+    "name": "Example",
+    "note": "Birthday ideas",
+    "image": "",
+    "links": [
+      {
+        "label": "Main wishlist",
+        "url": "https://www.example.com/"
+      },
+  {
+    "name": "Example",
+    "note": "Birthday ideas",
+    "image": "",
+    "links": [
+      {
+        "label": "Main wishlist",
+        "url": "https://www.example.com/"
+      },
+  {
+    "name": "Example",
+    "note": "Birthday ideas",
+    "image": "",
+    "links": [
+      {
+        "label": "Main wishlist",
+        "url": "https://www.example.com/"
       }
     ]
   }
