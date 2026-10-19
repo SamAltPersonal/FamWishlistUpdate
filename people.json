@@ -1,12 +1,12 @@
 [
   {
-    "name": "Alex Example",
-    "note": "Christmas 2026",
-    "image": "images/alex.jpg",
+    "name": "Sam",
+    "note": "Updated 19/10/26",
+    "image": "images/sam.jpg",
     "links": [
       {
-        "label": "Amazon wishlist",
-        "url": "https://www.amazon.co.uk/"
+        "label": "Steam wishlist (PC Games)",
+        "url": "https://store.steampowered.com/wishlist/id/snapshotsam/?sort=discount&st=9982814051644988892"
       },
       {
         "label": "Etsy favourites",
@@ -15,7 +15,7 @@
     ]
   },
   {
-    "name": "Jamie Example",
+    "name": "Example",
     "note": "Birthday ideas",
     "image": "",
     "links": [
