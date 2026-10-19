@@ -15,13 +15,13 @@
     ]
   },
   {
-    "name": "Example",
-    "note": "Birthday ideas",
+    "name": "Harry",
+    "note": "Birthday: 21/01",
     "image": "",
     "links": [
       {
-        "label": "Main wishlist",
-        "url": "https://www.example.com/"
+        "label": "icloud list",
+        "url": "https://www.icloud.com/notes/03b3qLKkXQ62ar2xevzsqDxwA"
       }
     ]
   },
