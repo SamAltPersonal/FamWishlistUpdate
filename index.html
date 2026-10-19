@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>Wishlists</title>
+  <meta name="description" content="A simple directory of family and friends' wishlists.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --page: #f7f6f2;
+      --surface: #ffffff;
+      --text: #242522;
+      --muted: #74766f;
+      --line: #e8e7e1;
+      --link-bg: #f4f4f0;
+      --accent: #526b58;
+      --shadow: 0 4px 20px rgba(25, 28, 20, .045);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #171917;
+        --surface: #202320;
+        --text: #f1f2ed;
+        --muted: #a4aaa1;
+        --line: #343934;
+        --link-bg: #292d29;
+        --accent: #b6d0b9;
+        --shadow: 0 4px 22px rgba(0, 0, 0, .14);
+      }
+      meta[name="theme-color"] { color: #171917; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { width: min(880px, calc(100% - 32px)); margin: 0 auto; padding: 54px 0 48px; }
+    header { margin-bottom: 30px; }
+    .eyebrow {
+      color: var(--accent); font-size: .76rem; font-weight: 750;
+      letter-spacing: .13em; text-transform: uppercase; margin: 0 0 8px;
+    }
+    h1 { margin: 0; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.08; letter-spacing: -.045em; }
+    .intro { margin: 12px 0 0; max-width: 520px; color: var(--muted); font-size: 1rem; }
+    .people { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .person {
+      min-width: 0; background: var(--surface); border: 1px solid var(--line);
+      border-radius: 18px; padding: 18px; box-shadow: var(--shadow);
+    }
+    .person-head { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
+    .avatar {
+      width: 54px; height: 54px; flex: 0 0 54px; object-fit: cover;
+      border-radius: 15px; background: var(--link-bg); border: 1px solid var(--line);
+    }
+    .avatar-fallback {
+      display: grid; place-items: center; color: var(--accent); font-weight: 750;
+      font-size: 1.1rem;
+    }
+    h2 { font-size: 1.08rem; line-height: 1.25; margin: 0; letter-spacing: -.015em; }
+    .note { color: var(--muted); font-size: .85rem; margin: 4px 0 0; }
+    .links { display: grid; gap: 8px; }
+    .wishlist-link {
+      display: flex; align-items: center; gap: 10px; min-width: 0;
+      padding: 10px 12px; background: var(--link-bg); border: 1px solid transparent;
+      border-radius: 11px; color: var(--text); text-decoration: none;
+      transition: border-color .15s ease, transform .15s ease;
+    }
+    .wishlist-link:hover { border-color: var(--line); transform: translateY(-1px); }
+    .wishlist-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    .favicon { width: 19px; height: 19px; object-fit: contain; flex: 0 0 19px; border-radius: 4px; }
+    .link-label { overflow-wrap: anywhere; font-size: .92rem; font-weight: 600; }
+    .external { color: var(--muted); margin-left: auto; flex: 0 0 auto; font-size: 1rem; }
+    .empty { grid-column: 1 / -1; color: var(--muted); border: 1px dashed var(--line); border-radius: 16px; padding: 24px; text-align: center; }
+    footer { margin-top: 26px; color: var(--muted); font-size: .8rem; text-align: center; }
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 24px, 480px); padding-top: 34px; }
+      .people { grid-template-columns: 1fr; gap: 12px; }
+      .person { padding: 16px; }
+      .intro { font-size: .95rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <p class="eyebrow">Gift ideas, all in one place</p>
+      <h1>Wishlists</h1>
+      <p class="intro">A little list of gift ideas for the people we love.</p>
+    </header>
+    <section id="people" class="people" aria-label="People and their wishlists">
+      <div class="empty">Loading wishlists…</div>
+    </section>
+    <footer>Made for sharing a little joy.</footer>
+  </main>
+  <script>
+    // Edit people.json to add or update people and their links.
+    const peopleContainer = document.querySelector("#people");
+
+    function getInitials(name) {
+      return name.trim().split(/\s+/).slice(0, 2).map(part => part[0] || "").join("").toUpperCase();
+    }
+
+    function makeAvatar(person) {
+      if (person.image) {
+        const img = document.createElement("img");
+        img.className = "avatar";
+        img.src = person.image;
+        img.alt = "";
+        img.loading = "lazy";
+        img.onerror = () => {
+          const fallback = document.createElement("div");
+          fallback.className = "avatar avatar-fallback";
+          fallback.setAttribute("aria-hidden", "true");
+          fallback.textContent = getInitials(person.name);
+          img.replaceWith(fallback);
+        };
+        return img;
+      }
+      const fallback = document.createElement("div");
+      fallback.className = "avatar avatar-fallback";
+      fallback.setAttribute("aria-hidden", "true");
+      fallback.textContent = getInitials(person.name);
+      return fallback;
+    }
+
+    function safeUrl(value) {
+      try {
+        const url = new URL(value);
+        return ["http:", "https:"].includes(url.protocol) ? url.href : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function faviconUrl(linkUrl) {
+      const host = new URL(linkUrl).hostname;
+      // Google's favicon endpoint provides a convenient 32px favicon for most domains.
+      return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=64`;
+    }
+
+    function makeLink(link) {
+      const href = safeUrl(link.url);
+      if (!href) return null;
+
+      const anchor = document.createElement("a");
+      anchor.className = "wishlist-link";
+      anchor.href = href;
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+
+      const icon = document.createElement("img");
+      icon.className = "favicon";
+      icon.src = faviconUrl(href);
+      icon.alt = "";
+      icon.loading = "lazy";
+      icon.onerror = () => {
+        icon.removeAttribute("src");
+        icon.style.display = "none";
+        const fallback = document.createElement("span");
+        fallback.className = "favicon";
+        fallback.textContent = "↗";
+        fallback.setAttribute("aria-hidden", "true");
+        anchor.insertBefore(fallback, anchor.firstChild);
+      };
+
+      const label = document.createElement("span");
+      label.className = "link-label";
+      label.textContent = link.label || new URL(href).hostname.replace(/^www\./, "");
+
+      const external = document.createElement("span");
+      external.className = "external";
+      external.textContent = "↗";
+      external.setAttribute("aria-hidden", "true");
+
+      anchor.append(icon, label, external);
+      return anchor;
+    }
+
+    function renderPeople(people) {
+      peopleContainer.replaceChildren();
+      if (!Array.isArray(people) || people.length === 0) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.textContent = "No wishlists have been added yet. Add people in people.json.";
+        peopleContainer.append(empty);
+        return;
+      }
+
+      people.forEach(person => {
+        if (!person || !person.name) return;
+        const card = document.createElement("article");
+        card.className = "person";
+
+        const head = document.createElement("div");
+        head.className = "person-head";
+        head.append(makeAvatar(person));
+
+        const heading = document.createElement("div");
+        const name = document.createElement("h2");
+        name.textContent = person.name;
+        heading.append(name);
+
+        if (person.note) {
+          const note = document.createElement("p");
+          note.className = "note";
+          note.textContent = person.note;
+          heading.append(note);
+        }
+        head.append(heading);
+
+        const links = document.createElement("div");
+        links.className = "links";
+        (Array.isArray(person.links) ? person.links : []).forEach(link => {
+          const item = makeLink(link);
+          if (item) links.append(item);
+        });
+
+        if (!links.children.length) {
+          const note = document.createElement("p");
+          note.className = "note";
+          note.textContent = "No links added yet.";
+          links.append(note);
+        }
+
+        card.append(head, links);
+        peopleContainer.append(card);
+      });
+    }
+
+    fetch("./people.json")
+      .then(response => {
+        if (!response.ok) throw new Error("Could not load people.json");
+        return response.json();
+      })
+      .then(renderPeople)
+      .catch(() => {
+        peopleContainer.innerHTML = '<div class="empty">Could not load the wishlist list. Check that <code>people.json</code> is in the same folder as this page.</div>';
+      });
+  </script>
+</body>
+</html>

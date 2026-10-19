@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Alex Example",
+    "note": "Christmas 2026",
+    "image": "images/alex.jpg",
+    "links": [
+      {
+        "label": "Amazon wishlist",
+        "url": "https://www.amazon.co.uk/"
+      },
+      {
+        "label": "Etsy favourites",
+        "url": "https://www.etsy.com/"
+      }
+    ]
+  },
+  {
+    "name": "Jamie Example",
+    "note": "Birthday ideas",
+    "image": "",
+    "links": [
+      {
+        "label": "Main wishlist",
+        "url": "https://www.example.com/"
+      }
+    ]
+  }
+]
